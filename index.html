@@ -8,7 +8,9 @@
 <body>
     <!-- here is code to use -->
      <!-- <a href="pdfs/.pdf" target="_blank">   </a> -->
-<a href="pdfs/الحب الأول_77405_Foulabook.com_.pdf" target="_blank"> الحب الأول تحميل كتاب </a> 
+<a href="pdfs/الحب الأول_77405_Foulabook.com_.pdf" target="_blank">الحب الأول_77405_Foulabook.com_</a><br>
+<a href="pdfs/دعني أخبرك بشيء أحمد خالد توفي�.pdf" target="_blank">دعني أخبرك بشيء أحمد خالد توفيق</a><br>
+<a href="pdfs/نعاس - هاروكي موراكامي.pdf" target="_blank">نعاس - هاروكي موراكامي</a><br>
 
 </body>
 </html>
@@ -16,4 +18,39 @@
 <!-- Here is all unused code , so its archived
 
 
+-->
+
+<!--script to take from github api
+import requests
+import json
+
+# قم بتعديل هذه المتغيرات
+GITHUB_USER = 'Abdelrhman-Hammoudeh'
+GITHUB_REPO = 'testing'
+FOLDER_PATH = 'pdfs'
+
+API_URL = f"https://api.github.com/repos/{GITHUB_USER}/{GITHUB_REPO}/contents/{FOLDER_PATH}"
+
+print("--- جلب قائمة ملفات PDF من GitHub API ---")
+
+try:
+    response = requests.get(API_URL)
+    response.raise_for_status() # إظهار خطأ إذا كان الاستجابة غير ناجحة
+    files_list = response.json()
+    
+    print("--- روابط HTML جاهزة للنسخ واللصق ---")
+    
+    for item in files_list:
+        if item['type'] == 'file' and item['name'].endswith('.pdf'):
+            # item['path'] هو المسار الكامل للملف (مثال: documents/my_book.pdf)
+            full_path = item['path'] 
+            # item['name'] هو اسم الملف (مثال: my_book.pdf)
+            link_title = item['name'].replace('.pdf', '')
+            
+            # إنشاء وسم HTML
+            html_link = f'<a href="{full_path}" target="_blank">{link_title}</a><br>'
+            print(html_link)
+            
+except requests.exceptions.RequestException as e:
+    print(f"حدث خطأ أثناء الاتصال بـ API: {e}")
 -->
